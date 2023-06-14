@@ -40,7 +40,6 @@ class CloudyApp extends StatelessWidget {
       routes: {
         '/': (context) => HomePage(),
         '/search': (context) => SearchPage(),
-        '/error': (context) => ErrorPage(),
       },
     );
   }
