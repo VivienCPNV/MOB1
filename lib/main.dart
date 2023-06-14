@@ -1,9 +1,20 @@
+import 'package:cloudy/screens/error/error.dart';
 import 'package:flutter/material.dart';
 import 'package:cloudy/screens/home/home.dart';
 import 'package:cloudy/screens/search/search.dart';
+import 'package:catcher/catcher.dart';
 
 void main() {
-  runApp(const CloudyApp());
+  CatcherOptions debugOptions =
+      CatcherOptions(PageReportMode(showStackTrace: true), [ConsoleHandler()]);
+
+  CatcherOptions releaseOptions = CatcherOptions(DialogReportMode(), [
+    EmailManualHandler(["Vivien.PICCIN@cpnv.ch"])
+  ]);
+  Catcher(
+      rootWidget: const CloudyApp(),
+      debugConfig: debugOptions,
+      releaseConfig: releaseOptions);
 }
 
 class CloudyApp extends StatelessWidget {
@@ -13,6 +24,7 @@ class CloudyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: Catcher.navigatorKey,
       builder: (context, widget) {
         return SafeArea(
           child: Scaffold(
@@ -29,6 +41,7 @@ class CloudyApp extends StatelessWidget {
       routes: {
         '/': (context) => HomePage(),
         '/search': (context) => SearchPage(),
+        '/error': (context) => ErrorPage(),
       },
     );
   }
