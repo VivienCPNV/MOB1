@@ -9,11 +9,6 @@ class SearchPage extends StatefulWidget {
 
 class SearchPageState extends State<SearchPage> {
   final textEditingController = TextEditingController();
-  @override
-  void setState(VoidCallback fn) {
-    // TODO: implement setState
-    super.setState(fn);
-  }
 
   @override
   Widget build(BuildContext context) {
