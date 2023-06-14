@@ -1,4 +1,3 @@
-import 'package:cloudy/screens/error/error.dart';
 import 'package:flutter/material.dart';
 import 'package:cloudy/screens/home/home.dart';
 import 'package:cloudy/screens/search/search.dart';
