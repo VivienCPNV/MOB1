@@ -146,6 +146,7 @@ class HomePageState extends State<HomePage> {
               color: Colors.grey.shade900,
               child: const Center(
                   child: SpinKitChasingDots(
+                size: 100.0,
                 color: Colors.white,
               )))
       ],
