@@ -1,4 +1,3 @@
-import 'package:cloudy/widgets/weather_widget.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatefulWidget {
@@ -10,7 +9,6 @@ class SearchPage extends StatefulWidget {
 
 class SearchPageState extends State<SearchPage> {
   final textEditingController = TextEditingController();
-  String? cityName;
   @override
   void setState(VoidCallback fn) {
     // TODO: implement setState
@@ -28,7 +26,7 @@ class SearchPageState extends State<SearchPage> {
             children: <Widget>[
               GestureDetector(
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.pop(context, "");
                 },
                 child: const Icon(
                   Icons.arrow_back_sharp,
@@ -60,16 +58,13 @@ class SearchPageState extends State<SearchPage> {
                   MaterialStateProperty.all<Color>(Colors.yellow.shade800),
             ),
             onPressed: () {
-              setState(() {
-                cityName = textEditingController.value.text;
-              });
+              Navigator.pop(context, textEditingController.value.text);
             },
             child: const Text('Search',
                 style: TextStyle(
                   fontSize: 30,
                   color: Colors.white,
                 ))),
-        if (cityName != null && cityName != "") WeatherWidget(city: cityName),
       ],
     );
   }
